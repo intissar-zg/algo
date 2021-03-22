@@ -4,32 +4,22 @@ VAR
     nbc,nbw,nbv:INTEGER;
     i:INTEGER
 BEGIN
+REPEAT
     write("enter your sentences");
     read(str);
-
-    nbc:=0;
-    FOR i FROM 1 TO  length(str)  DO
-        IF (str[i]!=".") THEN
-            nbc=nbc+1;
-        END_IF
-    END_FOR
-    write (nbc)
-
-
+      nbc:=str.length();
+UNTIL (str[nbc]=".")
+  
     nbw:=1;
-    FOR i FROM 1 TO i<=nbc-1  DO
-        IF (str[i]=="") THEN
+    nbv:=0;
+    FOR i FROM 1 TO length(str)  DO
+        IF (str[i]==" ") THEN
             nbw=nbw+1;
-        END_IF
-    END_FOR
-    write(nbw)
-
-
-    nbw:=0;
-    FOR i FROM 1 TO  length(str)  DO
-        IF (str[i] in ("a","e","i","o","u")) THEN
+        else IF (str[i] in ("a","e","i","o","u","y")) THEN
             nbv=nbv+1
         END_IF
     END_FOR
-    write (nbv)
+    write("nombre de caractères est," nbc)
+    write("nombre de mots est," nbw)
+    write("nombre de voyelle est," nbv)
 END
